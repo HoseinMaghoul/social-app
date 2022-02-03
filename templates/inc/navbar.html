@@ -1,0 +1,16 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="navbar-nav">
+        <a href="{% url 'core:home' %}" class="nav-link active">Home</a>
+        {% if request.user.is_authenticated %}
+        {% comment %} <a  class="nav-link active" href="{% url 'accounts:dashboard' request.user.username %}">Dashboard</a> {% endcomment %}
+        <a  class="nav-link active" href="{% url 'post:index'  %}">My Post</a>
+        {% comment %} <a  class="nav-link active" href="{% url 'post:post_detail' request.user.username %}">Post Detail</a> {% endcomment %}
+        <a  class="nav-link active" href="{% url 'users:logout' %}">Logout</a>
+        {% else %}
+        <a  class="nav-link active" href="{% url 'users:register' %}">Register</a>
+        <a class="nav-link active" href="{% url 'users:login' %}" >Login</a>
+        {% endif %}
+        
+
+    </div>
+</nav>

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% comment %} {% load extra_filters %} {% endcomment %}
+
+{% block content %}
+
+<table class="table table-dark">
+  <tbody>
+      {% for post in posts %}
+        <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+        <td>{{ post.title }}</td>
+        {% comment %} <td>{{ posts.Size|converter }}</td> {% endcomment %}
+        {% comment %} <td> <a href="{% url 'post:post_download' post.Key %}">Download</a></td> {% endcomment %}
+        <td> <a href="{% url 'post:post_delete' post.id %}">Delete</a></td>
+        </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
